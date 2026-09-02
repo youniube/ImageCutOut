@@ -1,6 +1,6 @@
 # SPEC.md
 
-# Windows 图片中间裁切工具
+# Windows 图片裁切合并工具
 
 ## 1. 项目目标
 

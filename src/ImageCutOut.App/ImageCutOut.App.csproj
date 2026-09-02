@@ -4,7 +4,10 @@
     <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>ImageCutOut</RootNamespace>
     <AssemblyName>ImageCutOut</AssemblyName>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
+    <Product>Windows 图片裁切合并工具</Product>
+    <AssemblyTitle>Windows 图片裁切合并工具</AssemblyTitle>
+    <Description>删除图片中间的横向或纵向区域，并将剩余内容无缝合拢。</Description>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

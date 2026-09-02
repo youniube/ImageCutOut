@@ -29,7 +29,7 @@ public sealed class UiIntegrationTests
         var dimensions = window.FindControl<TextBlock>("DimensionsText")!;
         var status = window.FindControl<TextBlock>("StatusText")!;
 
-        Assert.Equal("中间裁切", window.Title);
+        Assert.Equal("Windows 图片裁切合并工具", window.Title);
         Assert.False(canvas.IsCutToolActive);
         Assert.False(cutButton.IsChecked);
         Assert.False(cutButton.IsEnabled);

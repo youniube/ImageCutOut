@@ -567,7 +567,7 @@ public sealed partial class MainWindow : Window
 
         if (_document is null)
         {
-            Title = "中间裁切";
+            Title = "Windows 图片裁切合并工具";
             _dimensionsText.Text = "未打开图片";
             _zoomText.Text = string.Empty;
             if (!_isBusy)
