@@ -1,0 +1,106 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:ImageCutOut.Controls"
+        x:Class="ImageCutOut.MainWindow"
+        Width="1200"
+        Height="800"
+        MinWidth="800"
+        MinHeight="600"
+        Title="中间裁切"
+        DragDrop.AllowDrop="True">
+  <Grid RowDefinitions="Auto,*,Auto">
+    <Border Grid.Row="0"
+            Padding="10,8"
+            BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+            BorderThickness="0,0,0,1">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <Button x:Name="OpenButton" Content="打开" ToolTip.Tip="Ctrl+O" />
+        <ToggleButton x:Name="CutButton" Content="中间裁切" ToolTip.Tip="C" />
+        <Button x:Name="UndoButton" Content="撤销" ToolTip.Tip="Ctrl+Z" />
+        <Button x:Name="RedoButton" Content="重做" ToolTip.Tip="Ctrl+Y" />
+        <Button x:Name="SaveButton" Content="保存" ToolTip.Tip="Ctrl+S" />
+        <Button x:Name="SaveAsButton" Content="另存为" ToolTip.Tip="Ctrl+Shift+S" />
+        <Border Width="1" Margin="4,2" Background="{DynamicResource ThemeBorderMidBrush}" />
+        <Button x:Name="ActualSizeButton" Content="实际大小" ToolTip.Tip="Ctrl+1" />
+        <Button x:Name="FitButton" Content="适合窗口" ToolTip.Tip="Ctrl+0" />
+        <Border Width="1" Margin="4,2" Background="{DynamicResource ThemeBorderMidBrush}" />
+        <Button x:Name="HelpButton" Content="使用帮助" ToolTip.Tip="F1" />
+      </StackPanel>
+    </Border>
+
+    <Grid Grid.Row="1" Background="#25272B">
+      <controls:ImageCanvas x:Name="EditorCanvas" />
+
+      <Border x:Name="EmptyState"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Padding="30"
+              Background="#D91C2028"
+              CornerRadius="10">
+        <StackPanel Spacing="10" HorizontalAlignment="Center">
+          <TextBlock Text="拖入图片"
+                     Foreground="White"
+                     FontSize="24"
+                     FontWeight="SemiBold"
+                     HorizontalAlignment="Center" />
+          <Button x:Name="EmptyOpenButton"
+                  Content="或点击打开"
+                  Background="#334155"
+                  Foreground="White"
+                  HorizontalAlignment="Center" />
+          <Border Height="1" Margin="0,8,0,4" Background="#55FFFFFF" />
+          <TextBlock Text="快速上手"
+                     Foreground="White"
+                     FontSize="16"
+                     FontWeight="SemiBold"
+                     HorizontalAlignment="Center" />
+          <TextBlock Text="1. 打开或拖入一张图片&#10;2. 点击“中间裁切”&#10;3. 上下拖动删横条，左右拖动删竖条&#10;4. Enter 确认，Esc 取消"
+                     Foreground="#E6FFFFFF"
+                     FontSize="14"
+                     LineHeight="24" />
+          <Button x:Name="EmptyHelpButton"
+                  Content="查看完整使用说明"
+                  Background="#334155"
+                  Foreground="White"
+                  HorizontalAlignment="Center" />
+        </StackPanel>
+      </Border>
+
+      <Border x:Name="ConfirmationBar"
+              IsVisible="False"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Bottom"
+              Margin="16"
+              Padding="12,9"
+              Background="#F21C2028"
+              BorderBrush="#55FFFFFF"
+              BorderThickness="1"
+              CornerRadius="8">
+        <StackPanel Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+          <TextBlock x:Name="ConfirmationText"
+                     Foreground="White"
+                     VerticalAlignment="Center" />
+          <Button x:Name="ConfirmCutButton" Content="确认删除" />
+          <Button x:Name="CancelCutButton" Content="取消" />
+        </StackPanel>
+      </Border>
+    </Grid>
+
+    <Border Grid.Row="2"
+            Padding="12,6"
+            BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+            BorderThickness="0,1,0,0">
+      <Grid ColumnDefinitions="*,2*,*">
+        <TextBlock x:Name="DimensionsText" Grid.Column="0" Text="未打开图片" />
+        <TextBlock x:Name="StatusText"
+                   Grid.Column="1"
+                   Text="拖入图片或点击打开"
+                   TextAlignment="Center" />
+        <TextBlock x:Name="ZoomText"
+                   Grid.Column="2"
+                   Text=""
+                   TextAlignment="Right" />
+      </Grid>
+    </Border>
+  </Grid>
+</Window>
